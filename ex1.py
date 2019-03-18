@@ -38,14 +38,17 @@ def ex1():
 def ex2():
     rgx=r'(?:\s*[Aa]rt\.\s+(\d+)(?:.*[Uu]st\.\s+(\d+)))'
     # rgx = r'art\.\s*(\d+)[a-z]?\s*ust\.\s*(\d+)|(?!<\s{4,})art\.\s*(\d+)[a-z]?|[aA]rt\.\s*(\d+)[a-z]?.*ust\.\s*(\d+)'
-    filename='2001_973.txt'
-    with open('./ustawy/' + filename, 'r', encoding='utf-8') as file:
-        out = ' '.join(file.readlines())
-        out = out.replace('\\n', '')
-        res = regex.findall(rgx, out)
-        final = [(i, res.count(i)) for i in set(res)]
-        final.sort(reverse=True, key=lambda x: x[1])
-        print(final)
+    for filename in os.listdir(os.getcwd() + '/ustawy'):
+        with open('./ustawy/' + filename, 'r', encoding='utf-8') as file:
+            out = ' '.join(file.readlines())
+            out = out.replace('\\n', '')
+            res = regex.findall(rgx, out)
+            final = [(i, res.count(i)) for i in set(res)]
+            final.sort(reverse=True, key=lambda x: x[1])
+            print(filename)
+            print('\n')
+            print(final)
+            print('\n')
 
 
 def ex3():
