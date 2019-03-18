@@ -12,7 +12,7 @@ def ex1():
         with open('./ustawy/' + filename, 'r', encoding='utf-8') as file:
             out = ' '.join(file.readlines())
             out = out.replace('\\n', '')
-            res = regex.findall(rgx, out)
+            res = regex.findall(rgx, out,flags=regex.DOTALL)
             for r in res:
                 res2 = regex.findall(inner_regex, r[2])
                 for r2 in res2:
@@ -34,6 +34,20 @@ def ex1():
     with open('result.txt', 'w', encoding='utf-8') as res:
         res.write(str_res)
 
+
+def ex2():
+    rgx=r'(?:\s*[Aa]rt\.\s+(\d+)(?:.*[Uu]st\.\s+(\d+)))'
+    # rgx = r'art\.\s*(\d+)[a-z]?\s*ust\.\s*(\d+)|(?!<\s{4,})art\.\s*(\d+)[a-z]?|[aA]rt\.\s*(\d+)[a-z]?.*ust\.\s*(\d+)'
+    filename='2001_973.txt'
+    with open('./ustawy/' + filename, 'r', encoding='utf-8') as file:
+        out = ' '.join(file.readlines())
+        out = out.replace('\\n', '')
+        res = regex.findall(rgx, out)
+        final = [(i, res.count(i)) for i in set(res)]
+        final.sort(reverse=True, key=lambda x: x[1])
+        print(final)
+
+
 def ex3():
     rgx = r'\b[Uu]staw(?:(?:ie)|(?:om)|(?:ami)|(?:ach)|[ayęąo]?)\b'
     count = 0
@@ -47,4 +61,4 @@ def ex3():
 
 
 if __name__ == "__main__":
-    ex3()
+    ex2()
