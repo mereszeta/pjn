@@ -1,0 +1,323 @@
+curl -X PUT  "localhost:9200/idx/" -H 'Content-Type: application/json'
+-d'
+{
+	"mappings":{
+		"_doc": {
+      "properties": {
+        "content":    { "type": "text"  },
+        "title":{"type":"text"}
+      }
+	}
+	},
+	"settings":{
+		"analysis":{
+			"analyzer":{
+				"default":{
+					"type":"custom",
+					"tokenizer":"standard",
+					"filter":[
+						 "synonym_filter","morfologik_stem","lowercase"
+						]
+
+				}
+			},
+			"filter":{
+				"synonym_filter":{
+					"type" : "synonym",
+					"lenient": true,
+					"synonyms":[
+						"kodeks postępowania karnego,kpk",
+						"kodeks postępowania cywilnego,kpc",
+						"kodeks karny,kk",
+						"kodeks cywilny,kc"
+				]
+		}
+	}
+		}
+	}
+}
+'
+
+curl -X GET "localhost:9200/idx/_search" -H 'Content-Type: application/json' -d'
+{
+    "query": {
+        "term":{
+            "content": "ustawa"
+        }
+    }
+}
+' | jq '.hits.total '
+
+1179
+
+
+curl -X GET "localhost:9200/idx/_search" -H 'Content-Type: application/json'
+-d'{"query": {"match_phrase":{"content":{"query":"wchodzi w życie","slop":2}}}}' | jq '.hits.total'
+
+1175
+
+curl -X GET "localhost:9200/idx/_search" -H 'Content-Type: application/json'
+-d'{"query": {"match_phrase":{"content":{"query":"kodeks postępowania cywilnego","slop":0}}}}' | jq '.hits.total'
+
+45
+
+curl -X GET "localhost:9200/idx/_search" -H 'Content-Type: application/json' -d'{"query": {"term":{"content":"konstytucja"}},"size":10,"_source":"title"}' | jq '.hits.hits'
+
+[
+  {
+    "_index": "idx",
+    "_type": "_doc",
+    "_id": "5hNPtmkB9RVvArkILS0K",
+    "_score": 7.1496353,
+    "_source": {
+      "title": "1997_642.txt"
+    }
+  },
+  {
+    "_index": "idx",
+    "_type": "_doc",
+    "_id": "PxNPtmkB9RVvArkIlzAW",
+    "_score": 6.9829526,
+    "_source": {
+      "title": "1997_629.txt"
+    }
+  },
+  {
+    "_index": "idx",
+    "_type": "_doc",
+    "_id": "PRNOtmkB9RVvArkI3Cy-",
+    "_score": 6.4418488,
+    "_source": {
+      "title": "2000_443.txt"
+    }
+  },
+  {
+    "_index": "idx",
+    "_type": "_doc",
+    "_id": "YhNOtmkB9RVvArkI5Cyk",
+    "_score": 6.0202994,
+    "_source": {
+      "title": "1996_350.txt"
+    }
+  },
+  {
+    "_index": "idx",
+    "_type": "_doc",
+    "_id": "-RNPtmkB9RVvArkIiy-M",
+    "_score": 6.018351,
+    "_source": {
+      "title": "1997_604.txt"
+    }
+  },
+  {
+    "_index": "idx",
+    "_type": "_doc",
+    "_id": "cBNOtmkB9RVvArkI5yyU",
+    "_score": 5.764911,
+    "_source": {
+      "title": "2001_23.txt"
+    }
+  },
+  {
+    "_index": "idx",
+    "_type": "_doc",
+    "_id": "5RNPtmkB9RVvArkIhy-k",
+    "_score": 5.641619,
+    "_source": {
+      "title": "1996_199.txt"
+    }
+  },
+  {
+    "_index": "idx",
+    "_type": "_doc",
+    "_id": "yxNOtmkB9RVvArkI-Szy",
+    "_score": 5.56643,
+    "_source": {
+      "title": "1999_688.txt"
+    }
+  },
+  {
+    "_index": "idx",
+    "_type": "_doc",
+    "_id": "RRNPtmkB9RVvArkIlzDs",
+    "_score": 5.3249164,
+    "_source": {
+      "title": "2000_704.txt"
+    }
+  },
+  {
+    "_index": "idx",
+    "_type": "_doc",
+    "_id": "YBNPtmkB9RVvArkIFi07",
+    "_score": 5.2014284,
+    "_source": {
+      "title": "1995_436.txt"
+    }
+  }
+]
+
+curl -X GET "localhost:9200/idx/_search" -H 'Content-Type: application/json'
+-d'{"query": {"term":{"content":"konstytucja"}},"size":10,"_source":"title", "highlight":{"fields":{"content":{}},"number_of_fragments":3}}' | jq '.hits.hits'
+
+[
+  {
+    "_index": "idx",
+    "_type": "_doc",
+    "_id": "5hNPtmkB9RVvArkILS0K",
+    "_score": 7.1496353,
+    "_source": {
+      "title": "1997_642.txt"
+    },
+    "highlight": {
+      "content": [
+        "wnioskami o:              1) stwierdzenie zgodności ustaw i umów międzynarodowych z                <em>Konstytucją</em>",
+        "stwierdzenie zgodności przepisów prawa wydawanych przez                centralne organy państwowe, z <em>Konstytucją</em>",
+        "ratyfikowanymi                umowami międzynarodowymi i ustawami,              4) stwierdzenie zgodności z <em>Konstytucją</em>"
+      ]
+    }
+  },
+  {
+    "_index": "idx",
+    "_type": "_doc",
+    "_id": "PxNPtmkB9RVvArkIlzAW",
+    "_score": 6.9829526,
+    "_source": {
+      "title": "1997_629.txt"
+    },
+    "highlight": {
+      "content": [
+        "o zmianie ustawy konstytucyjnej o trybie przygotowania            i uchwalenia <em>Konstytucji</em> Rzeczypospolitej",
+        "W ustawie  konstytucyjnej z  dnia 23 kwietnia 1992 r. o trybie przygotowania i  uchwalenia <em>Konstytucji</em>",
+        "Do zgłoszenia projektu <em>Konstytucji</em> załącza się wykaz                  obywateli popierających zgłoszenie"
+      ]
+    }
+  },
+  {
+    "_index": "idx",
+    "_type": "_doc",
+    "_id": "PRNOtmkB9RVvArkI3Cy-",
+    "_score": 6.4418488,
+    "_source": {
+      "title": "2000_443.txt"
+    },
+    "highlight": {
+      "content": [
+        "umowy międzynarodowej i nie wypełnia przesłanek określonych w art. 89      ust. 1 lub art. 90 <em>Konstytucji</em>",
+        "międzynarodowej lub załącznika nie      wypełnia przesłanek określonych w art. 89 ust. 1 lub art. 90 <em>Konstytucji</em>",
+        "co do zasadności wyboru   trybu ratyfikacji umowy międzynarodowej, o którym mowa w art. 89 ust. 2   <em>Konstytucji</em>"
+      ]
+    }
+  },
+  {
+    "_index": "idx",
+    "_type": "_doc",
+    "_id": "YhNOtmkB9RVvArkI5Cyk",
+    "_score": 6.0202994,
+    "_source": {
+      "title": "1996_350.txt"
+    },
+    "highlight": {
+      "content": [
+        "Za naruszenie <em>Konstytucji</em> lub ustawy, w związku z zajmowanym               stanowiskiem lub w zakresie",
+        "W zakresie określonym w art. 107 <em>Konstytucji</em> odpowiedzialność przed            Trybunałem Stanu ponoszą",
+        "Członkowie Rady Ministrów ponoszą odpowiedzialność przed Trybunałem            Stanu za naruszenie <em>Konstytucji</em>"
+      ]
+    }
+  },
+  {
+    "_index": "idx",
+    "_type": "_doc",
+    "_id": "-RNPtmkB9RVvArkIiy-M",
+    "_score": 6.018351,
+    "_source": {
+      "title": "1997_604.txt"
+    },
+    "highlight": {
+      "content": [
+        "Jeżeli Trybunał Konstytucyjny wyda orzeczenie o sprzeczności celów partii     politycznej z <em>Konstytucją</em>",
+        "Jeżeli Trybunał Konstytucyjny wyda orzeczenie o sprzeczności z <em>Konstytucją</em>    celów lub działalności",
+        "Ciężar udowodnienia niezgodności z <em>Konstytucją</em> spoczywa                 na wnioskodawcy, który w tym"
+      ]
+    }
+  },
+  {
+    "_index": "idx",
+    "_type": "_doc",
+    "_id": "cBNOtmkB9RVvArkI5yyU",
+    "_score": 5.764911,
+    "_source": {
+      "title": "2001_23.txt"
+    },
+    "highlight": {
+      "content": [
+        "W Dzienniku Ustaw Rzeczypospolitej Polskiej, zwanym dalej \"Dziennikiem   Ustaw\", ogłasza się:    1) <em>Konstytucję</em>",
+        "akty prawne dotyczące:    1) stanu wojny i zawarcia pokoju,    2) referendum zatwierdzającego zmianę <em>Konstytucji</em>",
+        "ministra, któremu Sejm wyraził wotum nieufności,      h) powoływania lub odwoływania na określone w <em>Konstytucji</em>"
+      ]
+    }
+  },
+  {
+    "_index": "idx",
+    "_type": "_doc",
+    "_id": "5RNPtmkB9RVvArkIhy-k",
+    "_score": 5.641619,
+    "_source": {
+      "title": "1996_199.txt"
+    },
+    "highlight": {
+      "content": [
+        "2c i art. 9-11 ustawy konstytucyjnej z dnia 23 kwietnia  1992 r. o trybie przygotowania i uchwalenia <em>Konstytucji</em>",
+        "Prezydent Rzeczypospolitej Polskiej zarządza poddanie <em>Konstytucji</em> pod referendum    w trybie określonym",
+        "Przyjęcie w referendum <em>Konstytucji</em> następuje wówczas, gdy opowiedziała     się za nią większość biorących"
+      ]
+    }
+  },
+  {
+    "_index": "idx",
+    "_type": "_doc",
+    "_id": "yxNOtmkB9RVvArkI-Szy",
+    "_score": 5.56643,
+    "_source": {
+      "title": "1999_688.txt"
+    },
+    "highlight": {
+      "content": [
+        "postępowania w sprawie wykonywania inicjatywy ustawodawczej przez obywateli, o której mowa w art. 118 ust. 2 <em>Konstytucji</em>",
+        "Projekt ustawy nie może dotyczyć spraw, dla których <em>Konstytucja</em> Rzeczypospolitej Polskiej zastrzega wyłączną",
+        "Projekt ustawy wniesiony do Marszałka Sejmu powinien odpowiadać wymogom   zawartym w <em>Konstytucji</em> i Regulaminie"
+      ]
+    }
+  },
+  {
+    "_index": "idx",
+    "_type": "_doc",
+    "_id": "RRNPtmkB9RVvArkIlzDs",
+    "_score": 5.3249164,
+    "_source": {
+      "title": "2000_704.txt"
+    },
+    "highlight": {
+      "content": [
+        "Jeżeli organ nadzorujący uzna, że ustawa będąca podstawą udzielania pomocy   jest niezgodna z <em>Konstytucją</em>",
+        "aktu normatywnego, co do którego zapadło orzeczenie Trybunału Konstytucyjnego   o jego niezgodności z <em>Konstytucją</em>",
+        "aktu normatywnego, co do którego zapadło orzeczenie Trybunału Konstytucyjnego   o jego niezgodności z <em>Konstytucją</em>"
+      ]
+    }
+  },
+  {
+    "_index": "idx",
+    "_type": "_doc",
+    "_id": "YBNPtmkB9RVvArkIFi07",
+    "_score": 5.2014284,
+    "_source": {
+      "title": "1995_436.txt"
+    },
+    "highlight": {
+      "content": [
+        "wszystko   dla pomyślności Ojczyzny, wspólnoty samorządowej powiatu i dobra obywateli,   przestrzegać <em>Konstytucji</em>",
+        "W razie rażącego naruszenia przez radę powiatu <em>Konstytucji</em> lub ustaw Sejm,   na wniosek Prezesa Rady",
+        "Jeżeli naruszenia <em>Konstytucji</em> lub powtarzających się naruszeń ustaw dopuści   się zarząd powiatu, wojewoda"
+      ]
+    }
+  }
+]
