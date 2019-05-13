@@ -1,0 +1,3 @@
+venv
+fastText/
+skip_gram_v100m8.w2v.txt

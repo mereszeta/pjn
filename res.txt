@@ -1,0 +1,60 @@
+full_text - svm
+              precision    recall  f1-score
+
+ standalones       0.85      0.85      0.85
+     updates       0.88      0.89      0.88
+
+ten_percents - svm
+              precision    recall  f1-score
+
+ standalones       0.68      0.63      0.66
+     updates       0.73      0.77      0.75
+
+ten_lines - svm
+              precision    recall  f1-score
+
+ standalones       0.72      0.81      0.76
+     updates       0.83      0.76      0.79
+
+
+one__line - svm
+              precision    recall  f1-score
+
+ standalones       0.52      0.62      0.56
+     updates       0.64      0.55      0.59
+
+ten_lines - flair
+              precision    recall  f1-score
+
+ standalones    0.5484      0.2073      0.3009
+     updates    0.4972      0.8654      0.6316
+
+one_line - flair
+              precision    recall  f1-score
+
+ standalones    0.4706      0.8101      0.5954
+     updates    0.7794     0.4240      0.5492
+
+full_text - fasttext
+              precision    recall  f1-score
+
+ standalones       1      0.195      0.32
+     updates       0.66      1      0.79
+
+ten_percents - fasttext
+              precision    recall  f1-score
+
+ standalones       0.65      1         0.79
+     updates       0.78      0.40      0.53
+
+ten_lines - fasttext
+              precision    recall  f1-score
+
+ standalones       0.88      0.19      0.32
+     updates       0.66      0.98      0.79
+
+one_line - fasttext
+              precision    recall  f1-score
+
+ standalones       0.66      0.22      0.34
+     updates       0.65      0.93      0.77
