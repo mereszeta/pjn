@@ -1,0 +1,458 @@
+Top 50 named entities
+
+Entity: Polskiej
+Channel: nam_loc_gpe_country
+Count: 66
+
+Entity: .U .
+Channel: nam_pro_media_periodic
+Count: 50
+
+Entity: Rzeczypospolitej Polskiej
+Channel: nam_loc_gpe_country
+Count: 46
+
+Entity: IKE
+Channel: nam_org_organization
+Count: 40
+
+Entity: Minister Spraw Wewnętrznych
+Channel: nam_org_institution
+Count: 38
+
+Entity: Minister Sprawiedliwości
+Channel: nam_org_institution
+Count: 30
+
+Entity: Europejskiej
+Channel: nam_org_organization
+Count: 27
+
+Entity: Rada Ministrów
+Channel: nam_org_institution
+Count: 19
+
+Entity: Unii Europejskiej
+Channel: nam_org_organization
+Count: 19
+
+Entity: Rady Ministrów
+Channel: nam_org_institution
+Count: 17
+
+Entity: Spraw Wewnętrznych
+Channel: nam_org_institution
+Count: 17
+
+Entity: Polski
+Channel: nam_loc_gpe_country
+Count: 16
+
+Entity: Skarbu Państwa
+Channel: nam_org_institution
+Count: 16
+
+Entity: Państwa
+Channel: nam_org_institution
+Count: 14
+
+Entity: Porozumienia o Wolnym Handlu
+Channel: nam_org_company
+Count: 14
+
+Entity: Polsce
+Channel: nam_loc_gpe_country
+Count: 13
+
+Entity: Obrony Narodowej
+Channel: nam_org_institution
+Count: 12
+
+Entity: Dz .U .
+Channel: nam_pro_media_periodic
+Count: 11
+
+Entity: Ministra Sprawiedliwości
+Channel: nam_org_institution
+Count: 10
+
+Entity: Ministrem Obrony Narodowej
+Channel: nam_org_institution
+Count: 10
+
+Entity: Pileckiego
+Channel: nam_liv_person
+Count: 10
+
+Entity: Urzędowym Rzeczypospolitej Polskiej "
+Channel: nam_org_institution
+Count: 10
+
+Entity: zł
+Channel: nam_oth_currency
+Count: 10
+
+Entity: Dzienniku Urzędowym Rzeczypospolitej Polskiej "
+Channel: nam_org_institution
+Count: 9
+
+Entity: Finansów
+Channel: nam_org_institution
+Count: 9
+
+Entity: Ministrów
+Channel: nam_org_institution
+Count: 9
+
+Entity: Ochrony Państwa
+Channel: nam_org_institution
+Count: 9
+
+Entity: Skarb Państwa
+Channel: nam_org_institution
+Count: 9
+
+Entity: polski
+Channel: nam_adj_country
+Count: 9
+
+Entity: Minister Obrony Narodowej
+Channel: nam_org_institution
+Count: 8
+
+Entity: Minister Zdrowia i Opieki Społecznej
+Channel: nam_org_institution
+Count: 8
+
+Entity: Sprawiedliwości
+Channel: nam_org_institution
+Count: 8
+
+Entity: Żydowska
+Channel: nam_loc_gpe_admin3
+Count: 8
+
+Entity: Bank Gospodarstwa Krajowego
+Channel: nam_org_institution
+Count: 7
+
+Entity: Fundusz Pracy
+Channel: nam_org_institution
+Count: 7
+
+Entity: Funduszu Pracy
+Channel: nam_org_institution
+Count: 7
+
+Entity: Krajowa Rada Sądownictwa
+Channel: nam_org_institution
+Count: 7
+
+Entity: Ordynacja podatkowa
+Channel: nam_pro_title_document
+Count: 7
+
+Entity: Pracy
+Channel: nam_org_institution
+Count: 7
+
+Entity: Prawo o ruchu drogowym
+Channel: nam_pro_title_document
+Count: 7
+
+Entity: Solidarności
+Channel: nam_org_institution
+Count: 7
+
+Entity: Wpływy
+Channel: nam_liv_person
+Count: 7
+
+Entity: ustawie z dnia 26 lipca 1991 r .o podatku dochodowym od osób fizycznych
+Channel: nam_pro_title_document
+Count: 7
+
+Entity: ustawy z dnia 23 maja 1991 r .o związkach zawodowych
+Channel: nam_pro_title_document
+Count: 7
+
+Entity: Europejskiej
+Channel: nam_org_institution
+Count: 6
+
+Entity: Gmina
+Channel: nam_loc_gpe_city
+Count: 6
+
+Entity: Główny Inspektor Sanitarny
+Channel: nam_org_institution
+Count: 6
+
+Entity: Inspekcji Sanitarnej
+Channel: nam_org_institution
+Count: 6
+
+Entity: Pracy i Polityki Socjalnej
+Channel: nam_org_institution
+Count: 6
+
+Entity: Rzeczpospolitą Polską
+Channel: nam_loc_gpe_country
+Count: 6
+
+
+
+
+
+Coarse channel: nam_org
+Top ten entities:
+
+Entity: IKE 
+Count: 40
+
+Entity: Minister Spraw Wewnętrznych 
+Count: 38
+
+Entity: Minister Sprawiedliwości 
+Count: 30
+
+Entity: Europejskiej 
+Count: 27
+
+Entity: Rada Ministrów 
+Count: 19
+
+Entity: Unii Europejskiej 
+Count: 19
+
+Entity: Rady Ministrów 
+Count: 17
+
+Entity: Spraw Wewnętrznych 
+Count: 17
+
+Entity: Skarbu Państwa 
+Count: 16
+
+Entity: Państwa 
+Count: 14
+
+
+Coarse channel: nam_pro
+Top ten entities:
+
+Entity: .U .
+Count: 50
+
+Entity: Dz .U .
+Count: 11
+
+Entity: Ordynacja podatkowa 
+Count: 7
+
+Entity: Prawo o ruchu drogowym 
+Count: 7
+
+Entity: ustawie z dnia 26 lipca 1991 r .o podatku dochodowym od osób fizycznych 
+Count: 7
+
+Entity: ustawy z dnia 23 maja 1991 r .o związkach zawodowych 
+Count: 7
+
+Entity: z dnia 23 maja 1991 r .o związkach zawodowych 
+Count: 6
+
+Entity: Kodeks postępowania cywilnego 
+Count: 5
+
+Entity: Konwencji 
+Count: 5
+
+Entity: Prawo o ustroju sądów powszechnych 
+Count: 5
+
+
+Coarse channel: nam_loc
+Top ten entities:
+
+Entity: Polskiej 
+Count: 66
+
+Entity: Rzeczypospolitej Polskiej 
+Count: 46
+
+Entity: Polski 
+Count: 16
+
+Entity: Polsce 
+Count: 13
+
+Entity: Żydowska 
+Count: 8
+
+Entity: Gmina 
+Count: 6
+
+Entity: Rzeczpospolitą Polską 
+Count: 6
+
+Entity: Polską 
+Count: 5
+
+Entity: Rejestru 
+Count: 5
+
+Entity: Malty 
+Count: 4
+
+
+Coarse channel: nam_liv
+Top ten entities:
+
+Entity: Pileckiego 
+Count: 10
+
+Entity: Wpływy 
+Count: 7
+
+Entity: Zbrojnych 
+Count: 3
+
+Entity: B .Zobowiązania 
+Count: 2
+
+Entity: C .Zysk 
+Count: 2
+
+Entity: Gospodarki Morskiej 
+Count: 2
+
+Entity: Inspektorowi 
+Count: 2
+
+Entity: Karta Nauczyciela 
+Count: 2
+
+Entity: Konwencję 
+Count: 2
+
+Entity: Medycznych 
+Count: 2
+
+
+Coarse channel: nam_adj
+Top ten entities:
+
+Entity: polski 
+Count: 9
+
+Entity: polskiej 
+Count: 4
+
+Entity: Polskiej 
+Count: 2
+
+Entity: polskich 
+Count: 2
+
+Entity: polskim 
+Count: 2
+
+Entity: żydowskich 
+Count: 2
+
+Entity: Europejskiej 
+Count: 1
+
+Entity: europejska 
+Count: 1
+
+Entity: europejskich 
+Count: 1
+
+Entity: macierzyński 
+Count: 1
+
+
+Coarse channel: nam_oth
+Top ten entities:
+
+Entity: zł 
+Count: 10
+
+Entity: Minister Spraw Wewnętrznych 
+Count: 4
+
+Entity: euro 
+Count: 4
+
+Entity: złotych 
+Count: 2
+
+Entity: - D 
+Count: 1
+
+Entity: EURO 
+Count: 1
+
+Entity: Edukacji Narodowej 
+Count: 1
+
+Entity: Minister Edukacji Narodowej 
+Count: 1
+
+Entity: NIP 
+Count: 1
+
+Entity: PKD 
+Count: 1
+
+
+Coarse channel: nam_fac
+Top ten entities:
+
+Entity: Kościoła Adwentystów Dnia Siódmego 
+Count: 2
+
+Entity: Kościoła Ewangelicko - Reformowanego 
+Count: 2
+
+Entity: Straży Granicznej 
+Count: 2
+
+Entity: BEMA Fabryka Płyt Filtracyjnych 
+Count: 1
+
+Entity: Bałtyckim 
+Count: 1
+
+Entity: Episkopalnego Kościoła Metodystycznego ( Bischofliche Methodistische Kirche 
+Count: 1
+
+Entity: Ewangelicko - Metodystycznego 
+Count: 1
+
+Entity: Granicznej 
+Count: 1
+
+Entity: Kościoła Ewangelicko - Augsburskiego 
+Count: 1
+
+Entity: Kościoła Ewangelicko - Metodystycznego 
+Count: 1
+
+
+Coarse channel: nam_eve
+Top ten entities:
+
+Entity: 1 
+Count: 2
+
+Entity: Siłach Zbrojnych 
+Count: 2
+
+Entity: Międzynarodowe Standardy Rachunkowości 
+Count: 1
+
+Entity: Wykazie 1 
+Count: 1
